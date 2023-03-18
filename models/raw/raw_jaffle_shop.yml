@@ -7,3 +7,18 @@ models:
         tests:
           - unique
           - not_null
+  - name: raw_orders
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values:
+                - 'returned'
+                - 'completed'
+                - 'return_pending'
+                - 'shipped'
+                - 'placed'
